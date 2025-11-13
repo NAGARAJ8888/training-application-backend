@@ -15,10 +15,10 @@ async function bootstrap() {
     credentials: true,
   });
 
-  // Serve static files from uploads directory
-  app.useStaticAssets(join(__dirname, '..', 'uploads'), {
-    prefix: '/uploads/',
-  });
+  // // Serve static files from uploads directory
+  // app.useStaticAssets(join(__dirname, '..', 'uploads'), {
+  //   prefix: '/uploads/',
+  // });
 
   // Global validation pipe
   app.useGlobalPipes(
