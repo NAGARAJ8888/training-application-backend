@@ -5,6 +5,7 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { VideosModule } from './videos/videos.module';
 import { PPTsModule } from './ppts/ppts.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -24,5 +25,6 @@ import { PPTsModule } from './ppts/ppts.module';
     VideosModule,
     PPTsModule,
   ],
+  controllers: [AppController],
 })
 export class AppModule {}
