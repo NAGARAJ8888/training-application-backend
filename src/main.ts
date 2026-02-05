@@ -10,9 +10,12 @@ async function bootstrap() {
   const configService = app.get(ConfigService);
 
   // Enable CORS
+  const corsOrigin = configService.get<string>('CORS_ORIGIN', '*');
   app.enableCors({
-    origin: '*',
-    credentials: true,
+    origin: corsOrigin === '*' ? '*' : corsOrigin.split(',').map(o => o.trim()),
+    credentials: corsOrigin !== '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
   });
 
   // // Serve static files from uploads directory
